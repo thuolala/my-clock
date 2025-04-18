@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Clock</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="icon" href="./img/sparkle.png">
+
+    <!-- CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <audio src="./sound/sparkle.wav" id="sparkleAudio"></audio>
+    <audio src="./sound/bell.mp3" id="bellAudio"></audio>
+
+    <h1 id="descText">˗ˏˋ ★ ˎˊ˗ Let the stars align! ˗ˏˋ ★ ˎˊ˗</h1>
+
+    <div class="container-fluid" style="height: 100vh;">
+        <div id="sparkle-bg"></div>
+
+        <div class="clock-container">
+            <div class="clock">
+                <img class="sparkle1" src="./img/sparkle.png">
+                <img class="sparkle2" src="./img/sparkle.png">
+                <div class="clock-inner">
+                    <div class="clock-screen">
+                        <div class="clock-text" id="clockText">
+                            <input type="text" id="textHour" maxlength="2" value="00">
+                            :
+                            <input type="text" id="textMin" maxlength="2" value="00">
+                            :
+                            <input type="text" id="textSec" maxlength="2" value="00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row button-row d-flex justify-content-center" style="gap: 20px;">
+            <div class="button-container">
+                <div id="startBtn">
+                    <div class="spin-wrapper clock-button">
+                        <!-- spinning background -->
+                    </div>
+                    <span class="button-text">Start</span>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div id="stopBtn">
+                    <div class="spin-wrapper clock-button">
+                        <!-- spinning background -->
+                    </div>
+                    <span class="button-text">Stop</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Copyright @2025 | Art & Develop by <span style="font-weight: bold;">A.T.</span></p>
+        <a class="footer-text" style="font-weight: bold; text-align: center; margin-bottom: 20px;"
+            href="https://thuolala.github.io/my-website/" target="_blank">
+            ˗ˏˋ ★ ˎˊ˗ Other Stuff ˗ˏˋ ★ ˎˊ˗
+        </a>
+    </footer>
+    </div>
+</body>
+
+</html>

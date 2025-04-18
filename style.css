@@ -1,0 +1,298 @@
+* {
+    transition: 0.2s ease-in-out;
+}
+
+body {
+    font-family: 'Pixelify Sans';
+    background-color: rgb(235, 223, 206);
+    justify-content: center;
+    min-height: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+    color: rgb(131, 87, 50);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+h1:hover {
+    color: #37221B;
+}
+
+.clock-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+    background-color: #3D2E28;
+    border: 10px inset #f1d3a2;
+    box-shadow: -20px 30px 20px #4a3e2c;
+    border-radius: 20px;
+    width: clamp(400px, 100vw, 800px);
+    height: clamp(150px, 50vw, 300px);
+    position: relative;
+}
+
+.clock-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 90%;
+    background-color: #5E4337;
+    border: 5px inset #4a3e2c;
+    border-radius: 10px;
+}
+
+.clock-screen {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 90%;
+    background: linear-gradient(135deg, #9C8560, #ffeac8);
+    background-size: 200% 200%;
+    background-position: bottom right;
+    border: 5px inset #f1d3a2;
+    border-radius: 10px;
+    transition: background-position 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+.clock-screen:hover {
+    background: linear-gradient(135deg, #9C8560, #fdf4e5);
+    background-position: top left;
+}
+
+.clock-text {
+    font-size: clamp(50px, 10vw, 100px);
+    text-align: center;
+    font-weight: bold;
+    color: #ebdfce;
+    outline: none !important;
+    border: none !important;
+
+    text-shadow: 3px 0 #5E4337, -3px 0 #5E4337, 0 3px #5E4337, 0 -3px #5E4337,
+        2px 2px #5E4337, -2px -2px #5E4337, 2px -2px #5E4337, -2px 2px #5E4337;
+}
+
+.clock-text input {
+    font-size: clamp(50px, 10vw, 100px);
+    font-weight: bold;
+    text-align: center;
+    width: 2.5ch;
+    color: #ebdfce;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    text-shadow: 3px 0 #5E4337, -3px 0 #5E4337, 0 3px #5E4337, 0 -3px #5E4337,
+        2px 2px #5E4337, -2px -2px #5E4337, 2px -2px #5E4337, -2px 2px #5E4337;
+}
+
+.clock-text input:hover{
+    background-color: rgba(255, 255, 255, 0.203);
+    border-radius: 50%;
+}
+
+.clock-text input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.sparkle1 {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    width: clamp(40px, 5vw, 60px);
+    z-index: 999;
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+.sparkle2 {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    width: clamp(40px, 5vw, 60px);
+    z-index: 999;
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+.sparkle1:hover,
+.sparkle2:hover {
+    animation: sparkle-blink 0.5s infinite ease-in-out;
+}
+
+@keyframes sparkle-blink {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.time-up-effect {
+    animation: sparkle-blink 0.7s ease-in-out;
+    animation-iteration-count: 6; /* 0.5s x 6 = 3 seconds of blinking */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Shared button style */
+#startBtn, #stopBtn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Make text stack nicely */
+    margin-top: 50px;
+    border-radius: 50%;
+    width: clamp(70px, 20vw, 120px);
+    height: clamp(70px, 20vw, 120px);
+    position: relative;
+}
+
+/* Spinning part */
+.spin-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+#startBtn .spin-wrapper {
+    background-color: #5E4337;
+    border: 10px inset #f1d3a2;
+    box-shadow: -10px 10px 20px #4a3e2c;
+}
+
+#stopBtn .spin-wrapper {
+    background-color: #f1d3a2;
+    border: 10px inset #5E4337;
+    box-shadow: -10px 10px 20px #4a3e2c;
+}
+
+#startBtn:hover .spin-wrapper,
+#stopBtn:hover .spin-wrapper {
+    animation: slow-spin 4s linear infinite;
+}
+
+/* Text that stays still */
+.button-text {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    color: #f1d3a2; /* for startBtn */
+    text-align: center;
+    pointer-events: none;
+
+    /* text-shadow: 3px 0 #5E4337, -3px 0 #3D2E28, 0 3px #5E4337, 0 -3px #5E4337,
+    2px 2px #5E4337, -2px -2px #5E4337, 2px -2px #5E4337, -2px 2px #5E4337; */
+}
+
+#stopBtn .button-text {
+    color: #5E4337; /* override for stopBtn */
+    /* text-shadow: 3px 0 #f1d3a2, -3px 0 #3D2E28, 0 3px #f1d3a2, 0 -3px #f1d3a2,
+    2px 2px #f1d3a2, -2px -2px #f1d3a2, 2px -2px #f1d3a2, -2px 2px #f1d3a2; */
+}
+
+#startBtn:hover,
+#stopBtn:hover{
+    font-size: larger;
+}
+
+@keyframes slow-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#sparkle-bg {
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 30px;
+    opacity: 0.6;
+    animation: sparkleFloat 5s linear infinite;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+.wave span {
+    display: inline-block;
+    animation: wave 1.3s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+footer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 0;
+    line-height: 0.5;
+}
+
+.footer-text {
+    gap: 0;
+    text-align: center;
+    color: rgb(131, 87, 50);
+}
+
+.footer-text:hover {
+    color: #37221B;
+}
