@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </head>
 
@@ -33,9 +33,9 @@
     <div class="container-fluid" style="height: 100vh;">
         <div id="sparkle-bg"></div>
 
-        <div class="clock-container">
+        <div class="clock-container" id="myClock">
             <div class="clock">
-                <img class="sparkle1" src="./img/sparkle.png">
+                <img class="sparkle1" src="./img/sparkle.png" id="aaa">
                 <img class="sparkle2" src="./img/sparkle.png">
                 <div class="clock-inner">
                     <div class="clock-screen">
@@ -50,6 +50,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- <button id="downloadClockBtn" onclick="downloadClock()">Download Clock</button> -->
 
         <div class="row button-row d-flex justify-content-center" style="gap: 20px;">
             <div class="button-container">
@@ -70,10 +72,17 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div style="height: 100%; display: flex;
+        justify-content: center;
+        align-items: center;">
+            <iframe src="https://thuolala.github.io/my-coffee/" scrolling="no" class="coffee-widget"></iframe>
+        </div> -->
+
     </div>
 
     <footer>
-        <p class="footer-text">Copyright @2025 | Art & Develop by <span style="font-weight: bold;">A.T.</span></p>
+        <p class="footer-text">Copyright @2025 | Art & Developed by <span style="font-weight: bold;">A.T.</span></p>
         <a class="footer-text" style="font-weight: bold; text-align: center; margin-bottom: 20px;"
             href="https://thuolala.github.io/my-website/" target="_blank">
             ˗ˏˋ ★ ˎˊ˗ Other Stuff ˗ˏˋ ★ ˎˊ˗

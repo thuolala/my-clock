@@ -161,3 +161,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     spawnSparkles(50);
 });
+
+function downloadURI(uri, name) {
+    var link = document.createElement("a");
+
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);  // Clear the dynamic link after use
+}
+
+function downloadClock() {
+    var div = $("#myClock")[0];
+
+    html2canvas(div, {
+        useCORS: true,  // Try to load images from external sources
+        logging: true,  // Enable logging to help debug issues
+        backgroundColor: null, // Transparent bg
+        onrendered: function (canvas) {
+            var myImage = canvas.toDataURL("image/png");
+            downloadURI(myImage, "my-clock.png");
+        }
+    });
+}
